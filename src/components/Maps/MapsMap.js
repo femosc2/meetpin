@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
-//import APIkeys from './config.js';
+import styled from 'styled-components';
+
+    const StyledMapsMap = styled.div`
+        background-color: red;
+    `;
 
 class MapsMap extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+
+        }
+    }
+
 
     render() {
 
         //console.log(APIkeys)
 
         return (
-                <div>
-                    <p> Test </p>
+            <StyledMapsMap>
+                <div id="map">  
+                
                 </div>
+            </StyledMapsMap>
         )
     }
 }
