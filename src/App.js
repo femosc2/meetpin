@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Header from './components/Header/Header.js'
+import Header from './components/Header/Header.js';
+import SavedLocation from './components/SavedLocation/SavedLocation.js';
 import Footer from './components/Footer/Footer.js';
 import Form from "./components/Form/Form.js"
 
