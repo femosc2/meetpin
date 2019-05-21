@@ -1,16 +1,39 @@
-import React from 'react';
-import Header from './components/Header/Header.js'
-import Maps from './components/Maps/Maps.js';
+import React, { Component } from 'react';
+import Header from './components/Header/Header.js';
+import SavedLocation from './components/SavedLocation/SavedLocation.js';
 import Footer from './components/Footer/Footer.js';
+import Maps from './components/Maps/Maps.js';
+import Form from "./components/Form/Form.js"
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Maps />
-      <Footer />
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      submittedValues: ["value1", "value2", "value3"]
+    }
+    this.getSubmittedValue = this.getSubmittedValue.bind(this)
+  }
+  getSubmittedValue(submittedValue) {
+    let values = [...this.state.submittedValues]
+    values.push(submittedValue)
+    this.setState({
+      submittedValues: values
+    }, () => {
+      console.log(this.state.submittedValues)
+    })
+  }
+  
+  render() {
+    return (
+      <div>
+        <Header />
+        <Maps />
+        <Form gotSubmittedValue={this.getSubmittedValue} />
+        <Footer />
+      </div>
+    );
+  }
+    
 }
 
 export default App;
