@@ -9,11 +9,13 @@ class Maps extends Component {
         super(props)
 
         this.state = {
-            addresses: []
+            addresses: [],
+            zoom: 1
         }
 
         // Allows requestData() function to accsess adresses from the App component
         this.requestData = this.requestData.bind(this)
+        this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
     }
 
     requestData() {
@@ -29,7 +31,7 @@ class Maps extends Component {
                 }
                 addressesArray.push(geoLocation);
                 this.setState({
-                    addresses: addressesArray
+                    addresses: addressesArray,
                 })
                 console.log(this.state)
 
@@ -40,6 +42,35 @@ class Maps extends Component {
             .finally(() => {
             });
            }
+           setTimeout(() => {
+               this.coordinatesCalculation()
+           }, 1000)
+
+        }
+
+    coordinatesCalculation() {
+        let latCoords = []
+        let lngCoords = []
+        for (let i = 0; i < this.state.addresses.length; i++) {
+            latCoords.push(this.state.addresses[i].coordinates.lat)
+            lngCoords.push(this.state.addresses[i].coordinates.lng)
+        }
+
+        let latSum = latCoords.reduce((previous, current) => current += previous);
+        let latAvg = latSum / latCoords.length;
+        
+        let lngSum = lngCoords.reduce((previous, current) => current += previous);
+        let lngAvg = lngSum / lngCoords.length;
+
+        this.setState({
+            ...this.state,
+            zoom: 10,
+            avgCoordinates: {
+                lat: latAvg,
+                lng: lngAvg
+            }
+        })
+        
     }
     
 
@@ -51,7 +82,7 @@ class Maps extends Component {
 }
         return (
             <div>
-                <MapsMap addressList={this.state.addresses} />
+                <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />
                 <button onClick={this.requestData} style={styleButton}>Click menibba</button>
             </div>
         )

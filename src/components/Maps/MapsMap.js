@@ -4,6 +4,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import APIkeys from '../../config.js';
 import { NONAME } from 'dns';
 import { isAbsolute } from 'path';
+import { tsConstructorType } from '@babel/types';
 
 const StyledMapsMap = styled.div`
         background-color: red;
@@ -12,34 +13,47 @@ const StyledMapsMap = styled.div`
 export class MapsMap extends Component {
   constructor(props) {
     super(props)
-    this.checkProps = this.checkProps.bind(this)
     this.state = {
-      ...this.props
+      ...this.props,
     }
+    this.checkProps = this.checkProps.bind(this)
   }
   checkProps() {
     console.log(this.state)
-    this.forceUpdate()
   }
   render() {
+    const google = window.google;
 
-const styleButton = {
-  zIndex: 8000,
-  position: "absolute",
-}
-
-    return ( 
+    const styleButton = {
+      zIndex: 8000,
+      position: "absolute",
+    }
+    return (
       <div>
-        <Map google={this.props.google} zoom={1}>
+        <Map google={this.props.google}
+             zoom={this.props.zoom} 
+             center={this.props.avgCoordinates}>
           {this.props.addressList.map(address => {
             return (
-              <Marker
+
+              <Marker      
                 title={'The marker`s title will appear as a tooltip.'}
                 name={address.address}
                 position={address.coordinates}
-                />
-            )
-          })}
+                icon={{
+                  url: "https://svgur.com/i/DCs.svg",
+                  anchor: new google.maps.Point(10, 10),
+                  scaledSize: new google.maps.Size(20, 20)
+                }}
+          />
+      )
+    })}
+          {this.props.avgCoordinates !== undefined &&<Marker
+            title={'The marker`s title will appear as a tooltip.'}
+            name={"hej"}
+            position={this.props.avgCoordinates}
+          />
+          }
         </Map>
         <button onClick={this.checkProps} style={styleButton} >Hej</button>
       </div>
