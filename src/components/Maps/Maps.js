@@ -19,7 +19,7 @@ class Maps extends Component {
 
         // For loop för - gör 1 request för varje list item / adress som är angiven
 
-        axios.get('https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyA1tm9TYnrK19DFi87OzdjgzKqZQdQVnJ8')
+        axios.get(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=${APIkeys.googleMaps}`)
             .then(function (response) {
                 console.log(response);
             })
