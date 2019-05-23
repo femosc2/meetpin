@@ -1,12 +1,7 @@
-
-
-
-
+/*
 class SavedLocationList extends Component {
   render() {
 
-
-  return();
   }
 }
 
@@ -18,3 +13,5 @@ function SaveLocation(props) {
 
 
 export default SavedLocationList;
+
+*/
