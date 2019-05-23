@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      submittedValues: ["value1", "value2", "value3"]
+      submittedValues: ["Finalgatan 9 Lund", "Lilla varvsgatan 41g", "Lantmannagatan 3b malmö"]
     }
     this.getSubmittedValue = this.getSubmittedValue.bind(this)
   }
@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Maps />
+        <Maps addresses={this.state.submittedValues} />
         <Form gotSubmittedValue={this.getSubmittedValue} />
         <Footer />
       </div>
