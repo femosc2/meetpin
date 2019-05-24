@@ -10,7 +10,7 @@ right: 0;
 z-index: 8000;
 text-align: center;
 left: 0;
-top: 20%;
+top: 19%;
 padding: 0.5%;
 border: none;
 background-color: rgba(255, 255, 255, 0.5);
@@ -41,21 +41,38 @@ width: 12%;
 class SavedLocation extends Component {
   constructor(props) {
     super(props)
+    this.getLocalStorageLocations = this.getLocalStorageLocations.bind(this)
     this.submitToLocalStorage = this.submitToLocalStorage.bind(this)
   }
 
+  getLocalStorageLocations() {
+  let savedLocations = localStorage.getItem("locations")
+// Kontrollera om det finns några locations i localStorage
+  if (savedLocations == null) {
+    localStorage.setItem("locations", JSON.stringify([]));
+    return [];
+// Finns det inget i localStorage, skapas en tom lista
+  }
+  else {
+		// Returnerar alla locations som en sträng
+		return JSON.stringify(savedLocations);
+  }
+};
 
   submitToLocalStorage() {
-    localStorage.setItem("locations", JSON.stringify(this.props.locations));
-
+    let savedLocations = this.getLocalStorageLocations()
+    savedLocations = savedLocations.push(JSON.stringify(this.props.locations))
+    localStorage.setItem("locations", JSON.stringify(savedLocations));
   }
 
   render() {
 
 
   return(
-    <StyledButton onClick={this.submitToLocalStorage}>Save Locations</StyledButton>
-    //<SavedLocationList locations ={this.props.locations} />
+    <div>
+    <StyledButton onClick={this.getLocalStorageLocations}>Save Locations</StyledButton>
+    <SavedLocationList locations={this.props.locations} />
+    </div>
   );
   }
 }
@@ -64,7 +81,11 @@ class SavedLocation extends Component {
 //fläska in locations till localStorage
 //skicka ner locations till barnet SavedLocationList
 
-
+//TODO
+//När sidan laddas ska jag hämta in vad som är sparat i localStorage
+//När/om nya adresser skrivs in ska de ERSÄTTA de nuvarande localStorage adresserna
+//Skapa en printfunktion från localStorage så att användaren kan se vad som är sparat som slängs in i dropdownlistan
+//
 
 
 export default SavedLocation;
