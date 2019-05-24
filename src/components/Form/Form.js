@@ -22,7 +22,6 @@ class Form extends Component {
     }
     getSubmittedValue(submittedValue) {
         this.props.gotSubmittedValue(submittedValue)
-        console.log("den blev skickaed till form.js")
     }
     render() {
         return (

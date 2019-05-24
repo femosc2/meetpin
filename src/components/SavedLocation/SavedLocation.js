@@ -64,6 +64,7 @@ class SavedLocation extends Component {
     savedLocations = savedLocations.push(JSON.stringify(this.props.locations))
     localStorage.setItem("locations", JSON.stringify(savedLocations));
   }
+  //här vill vi också använda oss av state 
 
   render() {
 
@@ -72,6 +73,7 @@ class SavedLocation extends Component {
     <div>
     <StyledButton onClick={this.getLocalStorageLocations}>Save Locations</StyledButton>
     <SavedLocationList locations={this.props.locations} />
+    //borde skicka ner ett state härifrån istället
     </div>
   );
   }
