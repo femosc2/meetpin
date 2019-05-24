@@ -9,18 +9,19 @@ left: 0;
 right: 0;
 z-index: 8000;
 text-align: center;
-left: 45%;
+left: 0;
 top: 20%;
+padding: 0.5%;
 border: none;
 background-color: rgba(255, 255, 255, 0.5);
-font-size: 35px;
+font-size: 20px;
 border-radius: 35px;
 text-align: center;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
-width: 10%;
+width: 12%;
 @media only screen and (max-width: 768px) {
    width: 75%;
 }
@@ -53,8 +54,8 @@ class SavedLocation extends Component {
 
 
   return(
-    <StyledButton onClick={this.submitToLocalStorage}>Nisse</StyledButton>
-    <SavedLocationList locations ={this.props.locations} />
+    <StyledButton onClick={this.submitToLocalStorage}>Save Locations</StyledButton>
+    //<SavedLocationList locations ={this.props.locations} />
   );
   }
 }
