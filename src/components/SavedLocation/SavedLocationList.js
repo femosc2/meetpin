@@ -1,19 +1,32 @@
-/*
+import React, { Component } from "react";
+import SavedLocationListItem from './SavedLocationListItem.js';
+import styled from "styled-components";
+
+const StyledUl = styled.ul`
+  position: absolute;
+  top: 23%;
+  padding: 0;
+  background-color: pink;
+
+`
+
 class SavedLocationList extends Component {
-  render() {
-
+  constructor(props) {
+    super(props)
   }
+
+  render() {
+    return (
+      <StyledUl>
+      {this.props.locations.map(location => {
+        return (
+          <SavedLocationListItem location={location} />
+        )
+    })}
+    </StyledUl>
+    );
+  }
+  //borde hämta från localstorage (Skapa ett state i SavedLocation). Just nu hämtas det från App.
 }
-
-function SaveLocation(props) {
-  localStorage.setItem("SavedLocationList", JSON.stringify(props.value));
-
-}
-
-//skapa en lista som tar emot submittedvalues (adresserna) från föräldern SavedLocation
-//Skicka listan till localStorage
-//skicka ner props till barnet SavedLocationListItem så att de kan användas där ?
 
 export default SavedLocationList;
-
-*/
