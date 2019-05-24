@@ -16,8 +16,4 @@ function SaveLocation(props) {
 
 export default SavedLocationList;
 
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> savedlocation

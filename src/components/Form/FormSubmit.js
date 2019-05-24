@@ -8,8 +8,7 @@ left: 0;
 right: 0;
 z-index: 8000;
 text-align: center;
-left: 45%;
-top: 20%;
+left: 65%;
 border: none;
 background-color: rgba(255, 255, 255, 0.5);
 font-size: 35px;
@@ -45,7 +44,7 @@ class FormSubmit extends Component {
    }
    render() {
        return (
-           <StyledButton onClick={this.submitSearch}> Submit </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
+           <StyledButton onClick={this.submitSearch}> + </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
        )
    }
 }
