@@ -22,18 +22,19 @@ class App extends Component {
       console.log(this.state.submittedValues)
     })
   }
-  
+
   render() {
     return (
       <div>
         <Header />
         <Maps addresses={this.state.submittedValues} />
         <Form gotSubmittedValue={this.getSubmittedValue} />
+        <SavedLocation locations={this.state.submittedValues} />
         <Footer />
       </div>
     );
   }
-    
+
 }
 
 export default App;

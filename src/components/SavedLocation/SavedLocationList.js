@@ -5,10 +5,6 @@ class SavedLocationList extends Component {
   }
 }
 
-function SaveLocation(props) {
-  localStorage.setItem("SavedLocationList", JSON.stringify(props.value));
-
-}
 
 //skapa en lista som tar emot submittedvalues (adresserna) från föräldern SavedLocation
 //Skicka listan till localStorage
@@ -16,8 +12,4 @@ function SaveLocation(props) {
 
 export default SavedLocationList;
 
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> savedlocation
