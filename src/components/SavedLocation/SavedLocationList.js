@@ -18,7 +18,6 @@ class SavedLocationList extends Component {
   render() {
     return (
       <StyledUl>
-      //borde hämta från localstorage (Skapa ett state i SavedLocation). Just nu hämtas det från App.
       {this.props.locations.map(location => {
         return (
           <SavedLocationListItem location={location} />
@@ -27,6 +26,7 @@ class SavedLocationList extends Component {
     </StyledUl>
     );
   }
+  //borde hämta från localstorage (Skapa ett state i SavedLocation). Just nu hämtas det från App.
 }
 
 export default SavedLocationList;
