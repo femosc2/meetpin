@@ -3,6 +3,9 @@ import styled from "styled-components";
 import FormInput from './FormInput';
 import FormSubmit from './FormSubmit';
 
+
+const StyledSection = styled.section`
+text-align: "center"`
 class Form extends Component {
     constructor() {
         super()
@@ -23,10 +26,10 @@ class Form extends Component {
     }
     render() {
         return (
-            <section>
+            <StyledSection>
                 <FormInput onInputChange={this.getSearchValue}/>
                 <FormSubmit searchValue={this.state.searchValue} onInputSubmit={this.getSubmittedValue} />
-            </section>
+            </StyledSection>
         )
     }
 }
