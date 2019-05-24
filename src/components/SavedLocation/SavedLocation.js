@@ -19,7 +19,9 @@ class SavedLocation extends Component {
 }
 
 
-
+//hämtar in state från App.js ( submittedvalues)
+//så skapa ett state och spara submittedvalues där.
+//skicka ner submittedvalues till barnet SavedLocationList
 
 
 

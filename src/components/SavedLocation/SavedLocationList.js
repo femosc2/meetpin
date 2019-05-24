@@ -1,12 +1,7 @@
-
-
-
-
+/*
 class SavedLocationList extends Component {
   render() {
 
-
-  return();
   }
 }
 
@@ -15,6 +10,10 @@ function SaveLocation(props) {
 
 }
 
-
+//skapa en lista som tar emot submittedvalues (adresserna) från föräldern SavedLocation
+//Skicka listan till localStorage
+//skicka ner props till barnet SavedLocationListItem så att de kan användas där ?
 
 export default SavedLocationList;
+
+*/
