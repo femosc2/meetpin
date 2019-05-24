@@ -1,26 +1,29 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+const ButtonImage = styled.img`
+width: 2rem;
+padding-top: .5rem;
+
+`
 
 const StyledButton = styled.button`
+outline: none;
 position: absolute;
-left: 0;
-right: 0;
 z-index: 8000;
 text-align: center;
-left: 65%;
+left: 71%;
 border: none;
-background-color: rgba(255, 255, 255, 0.5);
-font-size: 35px;
 border-radius: 35px;
 text-align: center;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
-width: 10%;
+width: 5vw;
+margin-top: 15px;
 @media only screen and (max-width: 768px) {
-   width: 75%;
+width: 75%;
 }
 &:hover {
    background: rgba(255,126,119,1);
@@ -44,7 +47,7 @@ class FormSubmit extends Component {
    }
    render() {
        return (
-           <StyledButton onClick={this.submitSearch}> + </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
+           <StyledButton onClick={this.submitSearch}> <ButtonImage src="https://image.flaticon.com/icons/svg/166/166260.svg"></ButtonImage> </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
        )
    }
 }

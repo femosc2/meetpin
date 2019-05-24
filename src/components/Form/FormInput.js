@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 
 const StyledInput = styled.input`
+outline: none;
 border: none;
 background-color: rgba(255, 255, 255, 0.5);
 min-width: 50%;
-font-size: 35px;
+font-size: 36px;
 border-radius: 35px;
 text-align: center;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
@@ -18,6 +19,7 @@ margin-left: auto;
 margin-right: auto;
 left: 0;
 right: 0;
+margin-top: 16px;
 @media screen and (max-width: 768px) {
    width: 100%;
    border-radius: 0%;
@@ -40,7 +42,7 @@ class FormInput extends Component {
    }
    render() {
        return (
-           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} /> /* Renders an input filed */
+           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, stad"/> /* Renders an input filed */
 
        )
    }

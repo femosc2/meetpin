@@ -6,23 +6,23 @@ import styled from "styled-components"
 
 
 const StyledButton = styled.button`
+margin-top: 16px;
+text-transform: uppercase;
+outline: none;
 position: absolute;
-left: 0;
-right: 0;
 z-index: 8000;
 text-align: center;
-left: 40%;
-top: 30%;
+right: 6vw;
 border: none;
-background-color: rgba(255, 255, 255, 0.5);
-font-size: 35px;
+background-color: rgba(255, 255, 255, 1);
+font-size: 2rem;
 border-radius: 35px;
 text-align: center;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
-width: 20%;
+width: 16%;
 @media only screen and (max-width: 768px) {
    width: 75%;
 }
@@ -45,7 +45,7 @@ class Maps extends Component {
 
         this.state = {
             addresses: [],
-            zoom: 1
+            zoom: 2
         }
 
         // Allows requestData() function to accsess adresses from the App component
@@ -111,14 +111,11 @@ class Maps extends Component {
 
 
     render() {
-        const styleButton = {
-  zIndex: 8000,
-  position: "absolute",
-}
+
         return (
             <div>
                 <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />
-                <StyledButton onClick={this.requestData} style={styleButton}>Calculate Coordinates</StyledButton>
+                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData} >Meet up</StyledButton>}
             </div>
         )
     }

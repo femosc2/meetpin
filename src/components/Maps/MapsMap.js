@@ -37,21 +37,26 @@ export class MapsMap extends Component {
             return (
 
               <Marker      
-                title={'The marker`s title will appear as a tooltip.'}
+                title={address.address}
                 name={address.address}
                 position={address.coordinates}
                 icon={{
-                  url: "https://svgur.com/i/DCs.svg",
-                  anchor: new google.maps.Point(10, 10),
-                  scaledSize: new google.maps.Size(20, 20)
+                  url: "https://image.flaticon.com/icons/svg/1511/1511107.svg",
+                  anchor: new google.maps.Point(20, 20),
+                  scaledSize: new google.maps.Size(40, 40)
                 }}
           />
       )
     })}
-          {this.props.avgCoordinates !== undefined &&<Marker
-            title={'The marker`s title will appear as a tooltip.'}
-            name={"hej"}
+          {this.props.avgCoordinates !== undefined && <Marker
+            title={'Meet here!'}
+            name={"meet"}
             position={this.props.avgCoordinates}
+            icon={{
+                  url: "https://image.flaticon.com/icons/svg/551/551559.svg",
+                  anchor: new google.maps.Point(25, 25),
+                  scaledSize: new google.maps.Size(50, 50)
+                }}
           />
           }
         </Map>
