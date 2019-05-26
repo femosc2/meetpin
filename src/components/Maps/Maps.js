@@ -55,27 +55,34 @@ class Maps extends Component {
 
     requestData() {
 
-        let addressesArray = [...this.state.addresses]
+        let addressesArray = []
+        console.log(addressesArray)
 
         for (let i = 0; i < this.props.addresses.length; i++) {
         axios.get(`https://cors-anywhere.herokuapp.com/https://maps.google.com/maps/api/geocode/json?address=${this.props.addresses[i]}&key=${APIkeys.googleMaps}`)
             .then((response) => {
+                try {
                 let geoLocation = {
-                    address: response.data.results[0].formatted_address,
-                    coordinates: response.data.results[0].geometry.location
-                }
+                        address: response.data.results[0].formatted_address,
+                        coordinates: response.data.results[0].geometry.location
+                    }
                 addressesArray.push(geoLocation);
                 this.setState({
                     addresses: addressesArray,
+                },
+                () => {
+                    this.props.onRequest(this.state.addresses)
                 })
-                console.log(this.state)
-
+                } catch(error) {
+                    let addresses = this.state.addresses
+                    addresses = addresses.filter(address => address.address !== this.props.addresses[i])
+                    this.setState({
+                        addresses
+                    }, () => {
+                        this.props.onRequest(this.state.addresses)
+                    })
+                }
             })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-            });
            }
            setTimeout(() => {
                this.coordinatesCalculation()
@@ -98,7 +105,6 @@ class Maps extends Component {
         let lngAvg = lngSum / lngCoords.length;
 
         this.setState({
-            ...this.state,
             zoom: 10,
             avgCoordinates: {
                 lat: latAvg,

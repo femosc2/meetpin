@@ -42,7 +42,7 @@ class FormInput extends Component {
    }
    render() {
        return (
-           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, stad"/> /* Renders an input filed */
+           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, stad"/> /* Renders an input field */
 
        )
    }

@@ -60,7 +60,6 @@ export class MapsMap extends Component {
           />
           }
         </Map>
-        <button onClick={this.checkProps} style={styleButton} >Hej</button>
       </div>
     );
   }

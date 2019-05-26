@@ -8,24 +8,35 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      submittedValues: ["Finalgatan 9 Lund", "Lilla varvsgatan 41g", "Lantmannagatan 3b malmö"]
+      submittedValues: []
     }
     this.getSubmittedValue = this.getSubmittedValue.bind(this)
+    this.receivePropsFromChild = this.receivePropsFromChild.bind(this)
   }
   getSubmittedValue(submittedValue) {
     let values = [...this.state.submittedValues]
     values.push(submittedValue)
     this.setState({
       submittedValues: values
+    })
+  }
+
+  receivePropsFromChild(addresses) {
+    let addressArray = []
+    console.log("submittedValues", this.state.submittedValues)
+    addresses.map(address => addressArray.push(address.address))
+    console.log(addressArray)
+    this.setState({
+      submittedValues: addressArray
     }, () => {
-      console.log(this.state.submittedValues)
+      console.log(this.state)
     })
   }
 
   render() {
     return (
       <div>
-        <Maps addresses={this.state.submittedValues} />
+        <Maps addresses={this.state.submittedValues} onRequest={this.receivePropsFromChild} />
         <Form gotSubmittedValue={this.getSubmittedValue} />
         <SavedLocation locations={this.state.submittedValues} />
         <AddressList addresses={this.state.submittedValues} />
