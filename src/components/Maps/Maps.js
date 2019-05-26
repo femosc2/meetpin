@@ -80,37 +80,43 @@ class Maps extends Component {
                         addresses
                     }, () => {
                         this.props.onRequest(this.state.addresses)
+                        this.props.badAddress("One or more of your addresses did not return any results")
                     })
                 }
             })
            }
            setTimeout(() => {
                this.coordinatesCalculation()
-           }, 1000)
+           }, 500)
 
         }
 
     coordinatesCalculation() {
         let latCoords = []
         let lngCoords = []
-        for (let i = 0; i < this.state.addresses.length; i++) {
-            latCoords.push(this.state.addresses[i].coordinates.lat)
-            lngCoords.push(this.state.addresses[i].coordinates.lng)
-        }
-
-        let latSum = latCoords.reduce((previous, current) => current += previous);
-        let latAvg = latSum / latCoords.length;
-        
-        let lngSum = lngCoords.reduce((previous, current) => current += previous);
-        let lngAvg = lngSum / lngCoords.length;
-
-        this.setState({
-            zoom: 10,
-            avgCoordinates: {
-                lat: latAvg,
-                lng: lngAvg
+        try {
+            for (let i = 0; i < this.state.addresses.length; i++) {
+                latCoords.push(this.state.addresses[i].coordinates.lat)
+                lngCoords.push(this.state.addresses[i].coordinates.lng)
             }
-        })
+    
+            let latSum = latCoords.reduce((previous, current) => current += previous);
+            let latAvg = latSum / latCoords.length;
+            
+            let lngSum = lngCoords.reduce((previous, current) => current += previous);
+            let lngAvg = lngSum / lngCoords.length;
+    
+            this.setState({
+                zoom: 10,
+                avgCoordinates: {
+                    lat: latAvg,
+                    lng: lngAvg
+                }
+            })
+
+        } catch {
+            this.props.badAddress("None of your inputs returned an address, please try again.")
+        }
         
     }
     

@@ -16,18 +16,9 @@ export class MapsMap extends Component {
     this.state = {
       ...this.props,
     }
-    this.checkProps = this.checkProps.bind(this)
-  }
-  checkProps() {
-    console.log(this.state)
   }
   render() {
     const google = window.google;
-
-    const styleButton = {
-      zIndex: 8000,
-      position: "absolute",
-    }
     return (
       <div>
         <Map google={this.props.google}
