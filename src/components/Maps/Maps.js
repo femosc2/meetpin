@@ -56,7 +56,9 @@ class Maps extends Component {
     requestData() {
 
         let addressesArray = []
-        console.log(addressesArray)
+        this.setState({
+            addresses: []
+        })
 
         for (let i = 0; i < this.props.addresses.length; i++) {
         axios.get(`https://cors-anywhere.herokuapp.com/https://maps.google.com/maps/api/geocode/json?address=${this.props.addresses[i]}&key=${APIkeys.googleMaps}`)
@@ -67,27 +69,22 @@ class Maps extends Component {
                         coordinates: response.data.results[0].geometry.location
                     }
                 addressesArray.push(geoLocation);
-                this.setState({
-                    addresses: addressesArray,
-                },
-                () => {
-                    this.props.onRequest(this.state.addresses)
-                })
                 } catch(error) {
-                    let addresses = this.state.addresses
-                    addresses = addresses.filter(address => address.address !== this.props.addresses[i])
-                    this.setState({
-                        addresses
-                    }, () => {
-                        this.props.onRequest(this.state.addresses)
-                        this.props.badAddress("One or more of your addresses did not return any results")
-                    })
+                    addressesArray.filter(address => address.address !== this.props.addresses[i])
+                    this.props.badAddress("One or more of your addresses did not return any results")
                 }
             })
            }
+           console.log(addressesArray)
+           this.setState({
+            addresses: addressesArray
+            }, () => {
+                console.log(this.state)
+                this.props.onRequest(this.state.addresses)
+            })
            setTimeout(() => {
                this.coordinatesCalculation()
-           }, 500)
+           }, 1000)
 
         }
 
