@@ -48,7 +48,7 @@ class Maps extends Component {
             zoom: 2
         }
 
-        // Allows requestData() function to accsess adresses from the App component
+        // Allows requestData() function to access adresses from the App component
         this.requestData = this.requestData.bind(this)
         this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
     }
@@ -84,7 +84,7 @@ class Maps extends Component {
                 this.setLocalStorage(geoLocation.address)
                 addressesArray.push(geoLocation);
                 } catch(error) {
-                    addressesArray.filter(address => address.address !== this.props.addresses[i])
+                    addressesArray.filter(address => address.address !== this.props.addresses[i]) //Error -if the name of the address is not legit, or couldn't be found with the google maps request
                     this.props.badAddress("One or more of your addresses did not return any results")
                 }
             })
@@ -92,7 +92,7 @@ class Maps extends Component {
            this.setState({
             addresses: addressesArray
             }, () => {
-                this.props.onRequest(this.state.addresses)
+                this.props.onRequest(this.state.addresses) //Passes the new addresses (to the parent App)
             })
            setTimeout(() => {
                this.coordinatesCalculation()
@@ -108,31 +108,32 @@ class Maps extends Component {
                 latCoords.push(this.state.addresses[i].coordinates.lat)
                 lngCoords.push(this.state.addresses[i].coordinates.lng)
             }
-    
+
             let latSum = latCoords.reduce((previous, current) => current += previous);
-            let latAvg = latSum / latCoords.length;
-            
+            let latAvg = latSum / latCoords.length; //Calculate the total latitude sum and divide it by the same amount of addresses submitted
+
             let lngSum = lngCoords.reduce((previous, current) => current += previous);
-            let lngAvg = lngSum / lngCoords.length;
-    
+            let lngAvg = lngSum / lngCoords.length; //Calculate the total longitude sum and divide it by the same amount of addresses submitted
+
             this.setState({
                 zoom: 10,
                 avgCoordinates: {
                     lat: latAvg,
                     lng: lngAvg
                 }
-            })
+            })//The meeting point is created
 
         } catch {
             this.props.badAddress("None of your inputs returned an address, please try again.")
         }
-        
+
     }
-    
+
 
 
     render() {
-
+      //Pass the calculated addresses and coordinates to MapsMap to display them.
+      // Requires atleast 2 addresses for the "Meet up" button to be displayed
         return (
             <div>
                 <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />

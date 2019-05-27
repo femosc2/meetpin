@@ -19,15 +19,17 @@ export class MapsMap extends Component {
   }
   render() {
     const google = window.google;
+    // Centers the map where the submitted addresses are located.
+     // For each address in the addressList, returns a pin on the map with name details of the address
     return (
       <div>
         <Map google={this.props.google}
-             zoom={this.props.zoom} 
+             zoom={this.props.zoom}
              center={this.props.avgCoordinates}>
           {this.props.addressList.map(address => {
             return (
 
-              <Marker      
+              <Marker
                 title={address.address}
                 name={address.address}
                 position={address.coordinates}
@@ -39,7 +41,8 @@ export class MapsMap extends Component {
           />
       )
     })}
-          {this.props.avgCoordinates !== undefined && <Marker
+    {this.props.avgCoordinates !== undefined && // If there is an average to calculate - return a pin with the average coordinates which indicates the ultimate meeting point!
+            <Marker
             title={'Meet here!'}
             name={"meet"}
             position={this.props.avgCoordinates}
