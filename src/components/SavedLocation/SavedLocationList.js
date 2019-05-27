@@ -7,9 +7,9 @@ const StyledUl = styled.ul`
     position: absolute;
     font-family: 'Roboto Condensed', sans-serif;
     position: absolute;
-    top: 8vh;
-    right: 6vw;
-    width: 16%;
+    top: 18vh;
+    left: 1vw;
+    width: 18%;
     border-radius: .5rem;
     -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);

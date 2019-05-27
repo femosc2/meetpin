@@ -82,21 +82,11 @@ componentDidMount() {
     {!this.state.isHidden && this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
     }
-    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle Menu</StyledButton> 
+    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle Menu</StyledButton>
     </div>
   );
   }
 }
-
-//hämtar in state från App.js ( submittedvalues)
-//fläska in locations till localStorage
-//skicka ner locations till barnet SavedLocationList
-
-//TODO
-//När sidan laddas ska jag hämta in vad som är sparat i localStorage
-//När/om nya adresser skrivs in ska de ERSÄTTA de nuvarande localStorage adresserna
-//Skapa en printfunktion från localStorage så att användaren kan se vad som är sparat som slängs in i dropdownlistan
-//
 
 
 export default SavedLocation;
