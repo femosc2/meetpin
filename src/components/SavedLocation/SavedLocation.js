@@ -55,7 +55,9 @@ class SavedLocation extends Component {
 };
 
 componentDidMount() {
-  this.getLocalStorageLocations()
+  setInterval(() => {
+    this.getLocalStorageLocations()
+  }, 1000)
 }
 
   render() {
