@@ -9,8 +9,8 @@ left: 0;
 right: 0;
 z-index: 8000;
 text-align: center;
-left: 0;
-top: 19%;
+left: 0.8%;
+top: 12%;
 padding: 0.5%;
 border: none;
 background-color: rgba(255, 255, 255, 0.5);
@@ -21,7 +21,7 @@ text-align: center;
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
-width: 12%;
+width: 11%;
 @media only screen and (max-width: 768px) {
    width: 75%;
 }
