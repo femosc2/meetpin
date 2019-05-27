@@ -14,7 +14,7 @@ class AddressListItem extends Component {
 
     render() {
         return (
-                <StyledListItem key={this.props.address}> {this.props.address} </StyledListItem>
+                <StyledListItem key={Math.floor(Math.random())}> {this.props.address} </StyledListItem>
         )
     }
 }

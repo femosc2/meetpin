@@ -42,9 +42,11 @@ class SavedLocation extends Component {
   constructor(props) {
     super()
     this.state = {
-      savedAddresses: []
+      savedAddresses: [],
+      isHidden: true
     }
     this.getLocalStorageLocations = this.getLocalStorageLocations.bind(this)
+    this.toggleLocalStorageMenu = this.toggleLocalStorageMenu.bind(this)
   }
 
   getLocalStorageLocations() {
@@ -54,16 +56,33 @@ class SavedLocation extends Component {
     })
 };
 
+toggleLocalStorageMenu() {
+  if (this.state.isHidden) {
+    this.setState({
+      ...this.state,
+      isHidden: false
+    })
+  } else {
+    this.setState({
+      ...this.state,
+      isHidden: true
+    })
+  }
+}
+
 componentDidMount() {
-  this.getLocalStorageLocations()
+  setInterval(() => {
+    this.getLocalStorageLocations()
+  }, 1000)
 }
 
   render() {
   return(
     <div>
-    {this.props.addresses !== null &&
+    {!this.state.isHidden && this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
     }
+    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle Menu</StyledButton> 
     </div>
   );
   }
