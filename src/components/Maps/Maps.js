@@ -58,11 +58,8 @@ class Maps extends Component {
       if (existing == null) {
         existing = [];
       }
-      console.log(existing)
       existing.push(address);
-      console.log(existing)
       existing = JSON.stringify(existing);
-      console.log(existing)
       localStorage.setItem("addresses", existing);
     }
 
