@@ -47,7 +47,7 @@ class FormSubmit extends Component {
    }
    render() {
        return (
-           <StyledButton onClick={this.submitSearch}> <ButtonImage src="https://image.flaticon.com/icons/svg/166/166260.svg"></ButtonImage> </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
+           <StyledButton onClick={this.props.searchValue !== "" && this.submitSearch}> <ButtonImage src="https://image.flaticon.com/icons/svg/166/166260.svg"></ButtonImage> </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
        )
    }
 }
