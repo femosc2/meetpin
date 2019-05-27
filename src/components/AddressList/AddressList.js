@@ -17,13 +17,13 @@ const StyledList = styled.ul`
     background-color: rgba(255, 255, 255, 0.5);
     padding: 0;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 600px) {
        margin: auto;
         width: 90%;
         top: 20vh;
 }
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (min-width: 600px) and (max-width: 1024px){
       width: 40%;
       right: 30%;
       margin: auto;
