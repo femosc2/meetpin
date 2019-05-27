@@ -22,13 +22,17 @@ box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
 width: 5vw;
 margin-top: 15px;
+
 @media only screen and (max-width: 768px) {
-width: 75%;
+   top: 8vh;
+   left: 84%;
+   width: 14vw;
+   background: white;
 }
+
 &:hover {
-   background: rgba(255,126,119,1);
-   filter: hue-rotate(180deg);
-   transition: 1s;
+   background: #78e08f;
+   transition: .8s;
    cursor: pointer;
 }
 &:active {

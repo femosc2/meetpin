@@ -2,8 +2,29 @@ import React, { Component } from 'react';
 import MapsMap from './MapsMap.js';
 import APIkeys from '../../config.js';
 import axios from "axios";
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
+const slideInTop = keyframes`
+	0% {
+		transform: translateY(-100%);
+	}
+	50%{
+		transform: translateY(8%);
+	}
+	65%{
+		transform: translateY(-4%);
+	}
+	80%{
+		transform: translateY(4%);
+	}
+	95%{
+		transform: translateY(-2%);
+	}			
+	100% {
+		transform: translateY(0%);
+	}		
+}
+`
 
 const StyledButton = styled.button`
 margin-top: 16px;
@@ -21,11 +42,10 @@ text-align: center;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
-transition: 1s;
+transition: 1.5s;
 width: 16%;
-@media only screen and (max-width: 768px) {
-   width: 75%;
-}
+animation: ${slideInTop} 1s;
+
 &:hover {
    background: rgba(255,126,119,1);
    filter: hue-rotate(180deg);
@@ -37,6 +57,16 @@ width: 16%;
    transition 0.3s;
    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.0);
 }
+
+@media only screen and (max-width: 768px) {
+   width: 3.5rem;
+   height: 3.5rem;
+   top: 16.5%;
+   right: 2%;
+   font-size: 1rem;
+   text-align: center;
+
+}
 `
 
 class Maps extends Component {
@@ -45,7 +75,7 @@ class Maps extends Component {
 
         this.state = {
             addresses: [],
-            zoom: 2
+            zoom: 2.5
         }
 
         // Allows requestData() function to accsess adresses from the App component
@@ -133,7 +163,7 @@ class Maps extends Component {
         return (
             <div>
                 <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />
-                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData} >Meet up</StyledButton>}
+                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData}>Meet</StyledButton>}
             </div>
         )
     }

@@ -22,8 +22,13 @@ text-align: center;
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
 width: 11%;
+
 @media only screen and (max-width: 768px) {
-   width: 75%;
+   width: 20%;
+   top: 0;
+   left: 60%;
+   border-radius: 0;
+
 }
 &:hover {
    background: rgba(255,126,119,1);
@@ -82,7 +87,7 @@ componentDidMount() {
     {!this.state.isHidden && this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
     }
-    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle Menu</StyledButton> 
+    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle history</StyledButton> 
     </div>
   );
   }

@@ -18,7 +18,8 @@ const slideInBottom = keyframes`
 
 const StyledDiv = styled.div`
 position: absolute;
-background-color: black;
+color: white;
+background-color: orangered;
 z-index: 8000;
 bottom: 0;
 left: 25%;
