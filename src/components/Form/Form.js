@@ -10,10 +10,13 @@ class Form extends Component {
     constructor() {
         super()
         this.state = {
-            searchValue: ""
+            searchValue: "",
+            gotFile: false,
         }
         this.getSearchValue = this.getSearchValue.bind(this)
         this.getSubmittedValue = this.getSubmittedValue.bind(this)
+        this.gotSubmittedValue = this.gotSubmittedValue.bind(this)
+        this.onInputSubmitWrapper = this.onInputSubmitWrapper.bind(this)
     }
     getSearchValue(searchValue) {
         this.setState({
@@ -23,10 +26,22 @@ class Form extends Component {
     getSubmittedValue(submittedValue) {
         this.props.gotSubmittedValue(submittedValue)
     }
+    gotSubmittedValue() {
+        console.log("got submitted value")
+        this.setState({
+            ...this.state,
+            gotFile: true
+        })
+    }
+
+    onInputSubmitWrapper() {
+        this.getSubmittedValue()
+        this.gotSubmittedValue()
+    }
     render() {
         return (
             <StyledSection>
-                <FormInput onInputChange={this.getSearchValue}/>
+                <FormInput onInputChange={this.getSearchValue} />
                 <FormSubmit searchValue={this.state.searchValue} onInputSubmit={this.getSubmittedValue} />
             </StyledSection>
         )

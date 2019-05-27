@@ -4,6 +4,11 @@ import styled from 'styled-components';
 const StyledListItem = styled.li`
     text-align: center;
     list-style: none;
+    padding: .5rem;
+
+    @media screen and (max-width: 768px) {
+     padding: 0;
+}
     `
 
 class AddressListItem extends Component {
