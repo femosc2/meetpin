@@ -53,19 +53,6 @@ class Maps extends Component {
         this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
     }
 
-<<<<<<< HEAD
-=======
-    setLocalStorage(address) {
-        let existing = JSON.parse(localStorage.getItem("addresses"));
-      if (existing == null) {
-        existing = [];
-      }
-      existing.push(address);
-      existing = JSON.stringify(existing);
-      localStorage.setItem("addresses", existing);
-    }
-
->>>>>>> d97aa0ec4dcbaf84472549071d8ec6045ce5fc3d
     requestData() {
 
         let addressesArray = []

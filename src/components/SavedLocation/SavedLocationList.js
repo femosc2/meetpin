@@ -3,12 +3,20 @@ import SavedLocationListItem from './SavedLocationListItem.js';
 import styled from "styled-components";
 
 const StyledUl = styled.ul`
-  position: absolute;
-  top: 23%;
-  padding: 0;
-  background-color: pink;
-
-`
+    margin: 0;
+    position: absolute;
+    font-family: 'Roboto Condensed', sans-serif;
+    position: absolute;
+    top: 8vh;
+    right: 6vw;
+    width: 16%;
+    border-radius: .5rem;
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow-y: scroll;
+    `
 
 class SavedLocationList extends Component {
   constructor(props) {
