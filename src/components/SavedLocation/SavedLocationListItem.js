@@ -13,7 +13,7 @@ class SavedLocationListItem extends Component {
   render() {
     return (
       <div>
-        <StyledP>{this.props.location}</StyledP>
+        <StyledP>{this.props.address}</StyledP>
       </div>
       );
     }

@@ -44,7 +44,7 @@ class App extends Component {
       <div>
         <Maps addresses={this.state.submittedValues} onRequest={this.getNewAddressList} badAddress={this.getErrorMessage} />
         <Form gotSubmittedValue={this.getSubmittedValue} />
-        <SavedLocation onRequest={this.getNewAddressList} locations={this.state.submittedValues} />
+        <SavedLocation addresses={this.state.submittedValues} onRequest={this.getNewAddressList}  />
         <AddressList addresses={this.state.submittedValues} />
         <MessageBox errorMessage={this.state.errorMessage} />
       </div>

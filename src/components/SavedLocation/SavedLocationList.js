@@ -18,9 +18,9 @@ class SavedLocationList extends Component {
   render() {
     return (
       <StyledUl>
-      {this.props.locations.map(location => {
+      {this.props.addresses.map(address => {
         return (
-          <SavedLocationListItem location={location} />
+          <SavedLocationListItem address={address} />
         )
     })}
     </StyledUl>

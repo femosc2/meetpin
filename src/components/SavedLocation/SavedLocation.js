@@ -40,40 +40,28 @@ width: 12%;
 
 class SavedLocation extends Component {
   constructor(props) {
-    super(props)
+    super()
+    this.state = {
+      savedAddresses: []
+    }
     this.getLocalStorageLocations = this.getLocalStorageLocations.bind(this)
-    this.submitToLocalStorage = this.submitToLocalStorage.bind(this)
   }
 
   getLocalStorageLocations() {
-  let savedLocations = localStorage.getItem("locations")
-// Kontrollera om det finns några locations i localStorage
-  if (savedLocations == null) {
-    localStorage.setItem("locations", JSON.stringify([]));
-    return [];
-// Finns det inget i localStorage, skapas en tom lista
-  }
-  else {
-		// Returnerar alla locations som en sträng
-		return JSON.stringify(savedLocations);
-  }
+    const savedAddresses = JSON.parse(localStorage.getItem("addresses"))
+    this.setState({
+      savedAddresses
+    })
 };
 
-  submitToLocalStorage() {
-    let savedLocations = this.getLocalStorageLocations()
-    savedLocations = savedLocations.push(JSON.stringify(this.props.locations))
-    localStorage.setItem("locations", JSON.stringify(savedLocations));
-  }
-  //här vill vi också använda oss av state 
+componentDidMount() {
+  this.getLocalStorageLocations()
+}
 
   render() {
-
-
   return(
     <div>
-    <StyledButton onClick={this.getLocalStorageLocations}>Save Locations</StyledButton>
-    <SavedLocationList locations={this.props.locations} />
-    //borde skicka ner ett state härifrån istället
+    <SavedLocationList addresses={this.state.savedAddresses} />
     </div>
   );
   }
