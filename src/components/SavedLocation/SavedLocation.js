@@ -61,7 +61,9 @@ componentDidMount() {
   render() {
   return(
     <div>
+    {this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
+    }
     </div>
   );
   }
