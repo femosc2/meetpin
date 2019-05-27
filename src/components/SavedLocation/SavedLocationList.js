@@ -16,7 +16,18 @@ const StyledUl = styled.ul`
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
     background-color: rgba(255, 255, 255, 0.5);
     overflow-y: scroll;
-    `
+    padding-inline-start: 0;
+
+@media screen and (max-width: 1024px) {
+    top: 10vh;
+    width: 22%;
+    padding: 0.5%;
+
+}
+
+
+`
+
 
 class SavedLocationList extends Component {
   constructor(props) {

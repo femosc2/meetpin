@@ -16,23 +16,26 @@ left: 71%;
 border: none;
 border-radius: 35px;
 text-align: center;
+background-color: white;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
 width: 5vw;
-margin-top: 15px;
-
 @media only screen and (max-width: 768px) {
-   top: 8vh;
-   left: 84%;
-   width: 14vw;
-   background: white;
+
+}
+
+@media screen and (max-width: 1024px) {
+width: 10%;
+top: 9.2vh;
+left: 70%;
 }
 
 &:hover {
-   background: #78e08f;
-   transition: .8s;
+   background: rgba(255,126,119,1);
+   filter: hue-rotate(180deg);
+   transition: 1s;
    cursor: pointer;
 }
 &:active {
@@ -51,7 +54,7 @@ class FormSubmit extends Component {
    }
    render() {
        return (
-           <StyledButton onClick={this.props.searchValue !== "" && this.submitSearch}> <ButtonImage src="https://image.flaticon.com/icons/svg/166/166260.svg"></ButtonImage> </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
+           <StyledButton onClick={this.submitSearch}> <ButtonImage src="https://image.flaticon.com/icons/svg/166/166260.svg"></ButtonImage> </StyledButton> //returns a button that when clicked, submits the user's search input (requested address)
        )
    }
 }

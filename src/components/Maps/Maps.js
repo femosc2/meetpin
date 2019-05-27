@@ -19,10 +19,10 @@ const slideInTop = keyframes`
 	}
 	95%{
 		transform: translateY(-2%);
-	}			
+	}
 	100% {
 		transform: translateY(0%);
-	}		
+	}
 }
 `
 
@@ -66,6 +66,11 @@ animation: ${slideInTop} 1s;
    font-size: 1rem;
    text-align: center;
 
+}
+@media screen and (max-width: 1024px) {
+    right: 17%;
+    width: 5rem;
+    height: 5rem;
 }
 `
 

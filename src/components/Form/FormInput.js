@@ -27,6 +27,10 @@ margin-top: 16px;
    font-size: 1.2rem;
    height: 2.4rem;
 }
+
+@media screen and (max-width: 1024px) {
+  width: 40%;
+}
 `
 class FormInput extends Component {
    constructor(props) {

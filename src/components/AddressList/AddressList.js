@@ -22,6 +22,14 @@ const StyledList = styled.ul`
         width: 90%;
         top: 20vh;
 }
+
+    @media screen and (max-width: 1024px) {
+      width: 40%;
+      right: 30%;
+      margin: auto;
+      top: 15vh;
+}
+
     `
 
 

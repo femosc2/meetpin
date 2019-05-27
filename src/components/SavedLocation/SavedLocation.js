@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
 position: absolute;
-left: 0;
 right: 0;
 z-index: 8000;
 text-align: center;
@@ -28,8 +27,13 @@ width: 11%;
    top: 0;
    left: 60%;
    border-radius: 0;
-
 }
+
+@media screen and (max-width: 1024px) {
+    top: 2vh;
+    left: 39%;
+}
+
 &:hover {
    background: rgba(255,126,119,1);
    filter: hue-rotate(180deg);
@@ -87,7 +91,7 @@ componentDidMount() {
     {!this.state.isHidden && this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
     }
-    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle history</StyledButton> 
+    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle history</StyledButton>
     </div>
   );
   }

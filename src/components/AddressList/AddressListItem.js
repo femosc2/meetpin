@@ -9,7 +9,11 @@ const StyledListItem = styled.li`
     @media screen and (max-width: 768px) {
      padding: 0;
 }
-    `
+    @media screen and (max-width: 1024px) {
+      padding: 1.5%;
+}
+
+`
 
 class AddressListItem extends Component {
     constructor(props) {
