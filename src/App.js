@@ -25,13 +25,10 @@ class App extends Component {
 
   getNewAddressList(addresses) {
     let addressArray = []
-    console.log("submittedValues", this.state.submittedValues)
     addresses.map(address => addressArray.push(address.address))
-    console.log(addressArray)
     this.setState({
       submittedValues: addressArray
     }, () => {
-      console.log(this.state)
     })
   }
 

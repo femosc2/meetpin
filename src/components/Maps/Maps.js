@@ -53,6 +53,19 @@ class Maps extends Component {
         this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
     }
 
+    setLocalStorage(address) {
+        let existing = JSON.parse(localStorage.getItem("addresses"));
+      if (existing == null) {
+        existing = [];
+      }
+      console.log(existing)
+      existing.push(address);
+      console.log(existing)
+      existing = JSON.stringify(existing);
+      console.log(existing)
+      localStorage.setItem("addresses", existing);
+    }
+
     requestData() {
 
         let addressesArray = []
@@ -68,6 +81,7 @@ class Maps extends Component {
                         address: response.data.results[0].formatted_address,
                         coordinates: response.data.results[0].geometry.location
                     }
+                this.setLocalStorage(geoLocation.address)
                 addressesArray.push(geoLocation);
                 } catch(error) {
                     addressesArray.filter(address => address.address !== this.props.addresses[i])
@@ -75,11 +89,9 @@ class Maps extends Component {
                 }
             })
            }
-           console.log(addressesArray)
            this.setState({
             addresses: addressesArray
             }, () => {
-                console.log(this.state)
                 this.props.onRequest(this.state.addresses)
             })
            setTimeout(() => {
