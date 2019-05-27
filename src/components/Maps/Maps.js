@@ -53,6 +53,19 @@ class Maps extends Component {
         this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
     }
 
+    setLocalStorage(address) {
+        let existing = JSON.parse(localStorage.getItem("addresses"));
+      if (existing == null) {
+        existing = [];
+      }
+      console.log(existing)
+      existing.push(address);
+      console.log(existing)
+      existing = JSON.stringify(existing);
+      console.log(existing)
+      localStorage.setItem("addresses", existing);
+    }
+
     requestData() {
 
         let addressesArray = []
@@ -68,9 +81,10 @@ class Maps extends Component {
                         address: response.data.results[0].formatted_address,
                         coordinates: response.data.results[0].geometry.location
                     }
+                this.setLocalStorage(geoLocation.address)
                 addressesArray.push(geoLocation);
                 } catch(error) {
-                    addressesArray.filter(address => address.address !== this.props.addresses[i]) //If the name of the address is not legit, or couldn't be found with the google maps request
+                    addressesArray.filter(address => address.address !== this.props.addresses[i])
                     this.props.badAddress("One or more of your addresses did not return any results")
                 }
             })
@@ -78,8 +92,7 @@ class Maps extends Component {
            this.setState({
             addresses: addressesArray
             }, () => {
-                console.log(this.state)
-                this.props.onRequest(this.state.addresses) //Passes the new addresses (to the parent App)
+                this.props.onRequest(this.state.addresses)
             })
            setTimeout(() => {
                this.coordinatesCalculation()
@@ -95,35 +108,35 @@ class Maps extends Component {
                 latCoords.push(this.state.addresses[i].coordinates.lat)
                 lngCoords.push(this.state.addresses[i].coordinates.lng)
             }
-
+    
             let latSum = latCoords.reduce((previous, current) => current += previous);
-            let latAvg = latSum / latCoords.length; //Calculate the total latitude sum and divide it by the same amount of addresses submitted
-
+            let latAvg = latSum / latCoords.length;
+            
             let lngSum = lngCoords.reduce((previous, current) => current += previous);
-            let lngAvg = lngSum / lngCoords.length; //Calculate the total longitude sum and divide it by the same amount of addresses submitted
-
+            let lngAvg = lngSum / lngCoords.length;
+    
             this.setState({
                 zoom: 10,
                 avgCoordinates: {
                     lat: latAvg,
                     lng: lngAvg
-                } //The meeting point is created
+                }
             })
 
         } catch {
             this.props.badAddress("None of your inputs returned an address, please try again.")
         }
-
+        
     }
-
+    
 
 
     render() {
 
         return (
             <div>
-                <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} /> //Pass the calculated addresses and coordinates to MapsMap to display them.
-                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData} >Meet up</StyledButton>} // Requires atleast 2 addresses for the "Meet up" button to be displayed
+                <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />
+                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData} >Meet up</StyledButton>}
             </div>
         )
     }
