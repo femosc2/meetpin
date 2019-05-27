@@ -7,7 +7,6 @@ const StyledUl = styled.ul`
   top: 23%;
   padding: 0;
   background-color: pink;
-
 `
 
 class SavedLocationList extends Component {
@@ -18,7 +17,11 @@ class SavedLocationList extends Component {
   render() {
     return (
       <StyledUl>
+<<<<<<< HEAD
       {this.props.addresses.map(address => {
+=======
+      {this.props.locations.map(location => { //creates a new array with each element inside the locations variable. returns single element in list
+>>>>>>> savedlocation
         return (
           <SavedLocationListItem address={address} />
         )
