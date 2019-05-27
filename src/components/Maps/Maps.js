@@ -48,19 +48,9 @@ class Maps extends Component {
             zoom: 2
         }
 
-        // Allows requestData() function to access adresses from the App component
+        // Allows requestData() function to accsess adresses from the App component
         this.requestData = this.requestData.bind(this)
         this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
-    }
-
-    setLocalStorage(address) {
-        let existing = JSON.parse(localStorage.getItem("addresses"));
-      if (existing == null) {
-        existing = [];
-      }
-      existing.push(address);
-      existing = JSON.stringify(existing);
-      localStorage.setItem("addresses", existing);
     }
 
     requestData() {
@@ -78,7 +68,6 @@ class Maps extends Component {
                         address: response.data.results[0].formatted_address,
                         coordinates: response.data.results[0].geometry.location
                     }
-                this.setLocalStorage(geoLocation.address)
                 addressesArray.push(geoLocation);
                 } catch(error) {
                     addressesArray.filter(address => address.address !== this.props.addresses[i]) //If the name of the address is not legit, or couldn't be found with the google maps request
@@ -89,6 +78,7 @@ class Maps extends Component {
            this.setState({
             addresses: addressesArray
             }, () => {
+                console.log(this.state)
                 this.props.onRequest(this.state.addresses) //Passes the new addresses (to the parent App)
             })
            setTimeout(() => {
@@ -132,11 +122,11 @@ class Maps extends Component {
 
         return (
             <div>
-                <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />
-                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData} >Meet up</StyledButton>}
+                <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} /> //Pass the calculated addresses and coordinates to MapsMap to display them.
+                {this.props.addresses.length > 1 && <StyledButton onClick={this.requestData} >Meet up</StyledButton>} // Requires atleast 2 addresses for the "Meet up" button to be displayed
             </div>
-          )//Pass the calculated addresses and coordinates to MapsMap to display them.
-      }// Requires atleast 2 addresses for the "Meet up" button to be displayed
+        )
+    }
 }
 
 
