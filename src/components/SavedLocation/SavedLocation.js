@@ -10,7 +10,7 @@ right: 0;
 z-index: 9000;
 text-align: center;
 left: 0.8%;
-top: 8.5%;
+top: 12.5%;
 padding: .5rem;
 border: none;
 background-color: white;
@@ -91,7 +91,7 @@ componentDidMount() {
     {!this.state.isHidden && this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
     }
-    <StyledButton onClick={this.toggleLocalStorageMenu}>History</StyledButton> 
+    <StyledButton onClick={this.toggleLocalStorageMenu}>History</StyledButton>
     </div>
   );
   }

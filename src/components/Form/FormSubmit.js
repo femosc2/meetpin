@@ -12,16 +12,17 @@ outline: none;
 position: absolute;
 z-index: 8000;
 text-align: center;
-left: 71%;
+left: 69%;
 border: none;
 border-radius: 35px;
 text-align: center;
+background-color: white;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
-width: 5vw;
-margin-top: 15px;
+width: 6vw;
+margin-top: 12px;
 
 @media only screen and (max-width: 768px) {
    top: 8vh;
