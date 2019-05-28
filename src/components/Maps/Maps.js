@@ -11,8 +11,7 @@ const slideInTop = keyframes`
 	100% {
 		transform: translateY(0%);
 	}		
-}
-`
+}`
 
 const StyledButton = styled.button`
 margin-top: 16px;
@@ -143,8 +142,6 @@ class Maps extends Component {
         }
         
     }
-    
-
 
     render() {
 

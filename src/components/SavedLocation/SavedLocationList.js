@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SavedLocationListItem from './SavedLocationListItem.js';
 import styled, { keyframes } from "styled-components";
 
-
 const slideInSide = keyframes`
 	0% {
 		transform: translateX(-100%);

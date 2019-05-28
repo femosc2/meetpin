@@ -15,8 +15,7 @@ text-align: center;
 @media screen and (max-width: 768px) {
     width: 80%;
     left: 10%;
-}
-`
+}`
 
 const StyledButton = styled.button`
 z-index: 8000;
@@ -25,7 +24,6 @@ bottom: 0;
 background: orangered;
 color: white;
 `
-
 class MessageBox extends Component {
     constructor(props) {
         super(props)

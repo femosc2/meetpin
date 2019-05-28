@@ -20,8 +20,7 @@ const slideInTop = keyframes`
 	100% {
 		transform: translateY(0%);
 	}		
-}
-`
+}`
 
 const StyledListItem = styled.li`
     text-align: center;

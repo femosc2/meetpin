@@ -21,10 +21,7 @@ const slideInTop = keyframes`
 	100% {
 		transform: translateY(0%);
 	}		
-}
-`
-
-
+}`
 
 const StyledList = styled.ul`
     margin: 0;

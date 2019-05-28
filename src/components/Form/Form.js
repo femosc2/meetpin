@@ -3,7 +3,6 @@ import styled from "styled-components";
 import FormInput from './FormInput';
 import FormSubmit from './FormSubmit';
 
-
 const StyledSection = styled.section`
 text-align: "center"`
 class Form extends Component {

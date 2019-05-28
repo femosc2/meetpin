@@ -3,9 +3,7 @@ import styled from "styled-components";
 
 const ButtonImage = styled.img`
 width: 2rem;
-padding-top: .5rem;
-
-`
+padding-top: .5rem; `
 
 const StyledButton = styled.button`
 outline: none;
@@ -39,8 +37,8 @@ margin-top: 15px;
    background: #fff;
    transition 0.3s;
    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.0);
-}
-`
+}`
+
 class FormSubmit extends Component {
    constructor(props) {
        super(props)

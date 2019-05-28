@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-
 const StyledInput = styled.input`
 outline: none;
 border: none;
@@ -26,8 +25,8 @@ margin-top: 16px;
    top: 8vh;
    font-size: 1.2rem;
    height: 2.4rem;
-}
-`
+}`
+
 class FormInput extends Component {
    constructor(props) {
        super(props)
