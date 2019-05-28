@@ -1,6 +1,30 @@
 import React, { Component } from 'react';
 import AddressListItem from "./AddressListItem.js";
-import styled from 'styled-components';
+import styled, { keyframes } from "styled-components";
+
+const slideInTop = keyframes`
+	0% {
+		transform: translateY(-100%);
+	}
+	50%{
+		transform: translateY(8%);
+	}
+	65%{
+		transform: translateY(-4%);
+	}
+	80%{
+		transform: translateY(4%);
+	}
+	95%{
+		transform: translateY(-2%);
+	}			
+	100% {
+		transform: translateY(0%);
+	}		
+}
+`
+
+
 
 const StyledList = styled.ul`
     margin: 0;
@@ -16,6 +40,7 @@ const StyledList = styled.ul`
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
     background-color: rgba(255, 255, 255, 0.5);
     padding: 0;
+    animation: ${slideInTop} .5s;
 
     @media screen and (max-width: 768px) {
        margin: auto;

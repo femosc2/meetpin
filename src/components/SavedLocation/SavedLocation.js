@@ -7,13 +7,13 @@ const StyledButton = styled.button`
 position: absolute;
 left: 0;
 right: 0;
-z-index: 8000;
+z-index: 9000;
 text-align: center;
 left: 0.8%;
-top: 12%;
-padding: 0.5%;
+top: 8.5%;
+padding: .5rem;
 border: none;
-background-color: rgba(255, 255, 255, 0.5);
+background-color: white;
 font-size: 20px;
 border-radius: 35px;
 text-align: center;
@@ -22,20 +22,24 @@ text-align: center;
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
 width: 11%;
+outline: none;
+
 
 @media only screen and (max-width: 768px) {
    width: 20%;
    top: 0;
+   margin-top: .69rem;
    left: 60%;
    border-radius: 0;
-
 }
+
 &:hover {
    background: rgba(255,126,119,1);
    filter: hue-rotate(180deg);
    transition: 1s;
    cursor: pointer;
 }
+
 &:active {
    background: #fff;
    transition 0.3s;
@@ -87,7 +91,7 @@ componentDidMount() {
     {!this.state.isHidden && this.props.addresses !== null &&
     <SavedLocationList addresses={this.state.savedAddresses} />
     }
-    <StyledButton onClick={this.toggleLocalStorageMenu}>Toggle history</StyledButton> 
+    <StyledButton onClick={this.toggleLocalStorageMenu}>History</StyledButton> 
     </div>
   );
   }

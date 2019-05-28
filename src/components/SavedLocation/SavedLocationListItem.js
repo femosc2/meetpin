@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const StyledP = styled.p`
   margin: 0;
+
 `
 
 class SavedLocationListItem extends Component {
@@ -14,6 +15,7 @@ class SavedLocationListItem extends Component {
     return (
       <div>
         <StyledP key={Math.floor(Math.random())}>{this.props.address}</StyledP>
+        <hr></hr>
       </div>
       );
     }
