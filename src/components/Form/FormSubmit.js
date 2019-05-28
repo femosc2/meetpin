@@ -12,7 +12,7 @@ outline: none;
 position: absolute;
 z-index: 8000;
 text-align: center;
-left: 69%;
+left: 70%;
 border: none;
 border-radius: 35px;
 text-align: center;
