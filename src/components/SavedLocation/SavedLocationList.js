@@ -1,17 +1,6 @@
 import React, { Component } from "react";
 import SavedLocationListItem from './SavedLocationListItem.js';
-import styled, { keyframes } from "styled-components";
-
-
-const slideInSide = keyframes`
-	0% {
-		transform: translateX(-100%);
-	}
-	100% {
-		transform: translateX(0%);
-	}		
-}
-`
+import styled from "styled-components";
 
 const StyledUl = styled.ul`
     margin: 0;
@@ -37,11 +26,7 @@ const StyledUl = styled.ul`
 }
 
 
-  @media screen and (max-width: 768px) {
-    max-height: 100vh;
-    top: 0%;
-    margin: 0;
-} `
+`
 
 
 class SavedLocationList extends Component {
@@ -52,7 +37,6 @@ class SavedLocationList extends Component {
   render() {
     return (
       <StyledUl>
-        <h1>History</h1>
       {this.props.addresses !== null && this.props.addresses.map(address => {
         return (
           <SavedLocationListItem address={address} />

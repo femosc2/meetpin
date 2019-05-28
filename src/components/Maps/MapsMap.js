@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import APIkeys from '../../config.js';
+import { NONAME } from 'dns';
+import { isAbsolute } from 'path';
+import { tsConstructorType } from '@babel/types';
+
+const StyledMapsMap = styled.div`
+        background-color: red;
+    `;
 
 export class MapsMap extends Component {
   constructor(props) {

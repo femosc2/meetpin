@@ -7,7 +7,6 @@ import styled, { keyframes } from "styled-components"
 const slideInTop = keyframes`
 	0% {
 		transform: translateY(-100%);
-<<<<<<< HEAD
 	}
 	50%{
 		transform: translateY(8%);
@@ -21,9 +20,6 @@ const slideInTop = keyframes`
 	95%{
 		transform: translateY(-2%);
 	}
-=======
-	}		
->>>>>>> responsive-css
 	100% {
 		transform: translateY(0%);
 	}
@@ -48,7 +44,7 @@ text-align: center;
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1.5s;
 width: 16%;
-animation: ${slideInTop} 1.2s;
+animation: ${slideInTop} 1s;
 
 &:hover {
    background: rgba(255,126,119,1);
@@ -61,7 +57,6 @@ animation: ${slideInTop} 1.2s;
    transition 0.3s;
    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.0);
 }
-
 
 @media only screen and (max-width: 768px) {
    width: 3.5rem;
@@ -78,6 +73,7 @@ animation: ${slideInTop} 1.2s;
     height: 5rem;
 }
 `
+
 class Maps extends Component {
     constructor(props) {
         super(props)
