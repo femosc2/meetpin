@@ -1,21 +1,6 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components"
 
-const slideInBottom = keyframes`
-    0% {
-        transform: translateY(200%);
-        z-index: 8000;
-    }
-    50% {
-        transform: translateY(0%);
-        z-index: 8000;
-    }
-    100% {
-        transform: translateY(200%);
-        z-index: 8000;
-    }
-`
-
 const StyledDiv = styled.div`
 position: absolute;
 color: white;
@@ -26,14 +11,18 @@ left: 25%;
 width: 50%;
 color: white;
 text-align: center;
-animation: ${slideInBottom} 5s 1;
+    
+@media screen and (max-width: 768px) {
+    width: 80%;
+    left: 10%;
+}
 `
 
 const StyledButton = styled.button`
 z-index: 8000;
 position: absolute;
 bottom: 0;
-background: black;
+background: orangered;
 color: white;
 `
 

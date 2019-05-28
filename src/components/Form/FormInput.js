@@ -59,7 +59,7 @@ class FormInput extends Component {
 
    render() {
        return (
-           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, stad"/> /* Renders an input field */
+           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, city"/> /* Renders an input field */
 
        )
    }
