@@ -1,4 +1,7 @@
 <h1 align="center">MeetPin</h1>
+<p align="center">
+  <img src="public/icon.png" width="180"><br>
+</p>
 
 ## 1. Developers
 
@@ -40,12 +43,13 @@ module.exports = APIkeys
 <ol>
   <li> cd into the repo </li> 
   <li> write <code>$ npm start </code> </li>
+  <li> navigate to http://localhost:3000/ </li>
 </ol>
 
 ## Justification of React
 
-React was chosen as the framework due to the single-page nature of the application. Reacts strenght lies in building applications where the page gets updated regulary without updating the page, therefore a framework such as Jquery was discarded in favor of React. [1]
-React was chosen in favor of Angular as React is a more popular framework, it is more lightweight and the developers did not have to learn TypeScript (as they had no experience with typed languages). [2] React also have a much more active community which makes the process of fixing errors easier. [2]
+React was chosen as the framework due to the single-page nature of the application. Reacts strenght lies in building applications where the page components gets updated regulary without updating the page, therefore a framework such as Jquery was discarded in favor of React. [1]
+The reason why react was chosen in favor of Angular is that React is a more popular framework, it is more lightweight and the developers did not have to learn TypeScript (as they had no experience with typed languages). [2] React also have a much more active community which makes the process of fixing errors easier. [2]
 
 ## Sources.
 [1]. Anton Tibblin, Malmö Universitet, Sweden, Föreläsning 10. JS-ramverk
