@@ -7,22 +7,10 @@ import styled, { keyframes } from "styled-components"
 const slideInTop = keyframes`
 	0% {
 		transform: translateY(-100%);
-	}
-	50%{
-		transform: translateY(8%);
-	}
-	65%{
-		transform: translateY(-4%);
-	}
-	80%{
-		transform: translateY(4%);
-	}
-	95%{
-		transform: translateY(-2%);
-	}
+	}		
 	100% {
 		transform: translateY(0%);
-	}
+	}		
 }
 `
 
@@ -44,7 +32,7 @@ text-align: center;
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1.5s;
 width: 16%;
-animation: ${slideInTop} 1s;
+animation: ${slideInTop} 1.2s;
 
 &:hover {
    background: rgba(255,126,119,1);
@@ -58,6 +46,7 @@ animation: ${slideInTop} 1s;
    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.0);
 }
 
+
 @media only screen and (max-width: 768px) {
    width: 3.5rem;
    height: 3.5rem;
@@ -67,13 +56,7 @@ animation: ${slideInTop} 1s;
    text-align: center;
 
 }
-@media screen and (max-width: 1024px) {
-    right: 17%;
-    width: 5rem;
-    height: 5rem;
-}
 `
-
 class Maps extends Component {
     constructor(props) {
         super(props)
@@ -83,7 +66,7 @@ class Maps extends Component {
             zoom: 2.5
         }
 
-        // Allows requestData() function to access adresses from the App component
+        // Allows requestData() function to accsess adresses from the App component
         this.requestData = this.requestData.bind(this)
         this.coordinatesCalculation = this.coordinatesCalculation.bind(this)
     }
@@ -93,11 +76,8 @@ class Maps extends Component {
       if (existing == null) {
         existing = [];
       }
-      console.log(existing)
       existing.push(address);
-      console.log(existing)
       existing = JSON.stringify(existing);
-      console.log(existing)
       localStorage.setItem("addresses", existing);
     }
 
@@ -119,7 +99,7 @@ class Maps extends Component {
                 this.setLocalStorage(geoLocation.address)
                 addressesArray.push(geoLocation);
                 } catch(error) {
-                    addressesArray.filter(address => address.address !== this.props.addresses[i]) //Error -if the name of the address is not legit, or couldn't be found with the google maps request
+                    addressesArray.filter(address => address.address !== this.props.addresses[i])
                     this.props.badAddress("One or more of your addresses did not return any results")
                 }
             })
@@ -127,7 +107,7 @@ class Maps extends Component {
            this.setState({
             addresses: addressesArray
             }, () => {
-                this.props.onRequest(this.state.addresses) //Passes the new addresses (to the parent App)
+                this.props.onRequest(this.state.addresses)
             })
            setTimeout(() => {
                this.coordinatesCalculation()
@@ -143,32 +123,31 @@ class Maps extends Component {
                 latCoords.push(this.state.addresses[i].coordinates.lat)
                 lngCoords.push(this.state.addresses[i].coordinates.lng)
             }
-
+    
             let latSum = latCoords.reduce((previous, current) => current += previous);
-            let latAvg = latSum / latCoords.length; //Calculate the total latitude sum and divide it by the same amount of addresses submitted
-
+            let latAvg = latSum / latCoords.length;
+            
             let lngSum = lngCoords.reduce((previous, current) => current += previous);
-            let lngAvg = lngSum / lngCoords.length; //Calculate the total longitude sum and divide it by the same amount of addresses submitted
-
+            let lngAvg = lngSum / lngCoords.length;
+    
             this.setState({
                 zoom: 10,
                 avgCoordinates: {
                     lat: latAvg,
                     lng: lngAvg
                 }
-            })//The meeting point is created
+            })
 
         } catch {
             this.props.badAddress("None of your inputs returned an address, please try again.")
         }
-
+        
     }
-
+    
 
 
     render() {
-      //Pass the calculated addresses and coordinates to MapsMap to display them.
-      // Requires atleast 2 addresses for the "Meet up" button to be displayed
+
         return (
             <div>
                 <MapsMap addressList={this.state.addresses} avgCoordinates={this.state.avgCoordinates} zoom={this.state.zoom} />

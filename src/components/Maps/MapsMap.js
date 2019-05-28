@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import APIkeys from '../../config.js';
-import { NONAME } from 'dns';
-import { isAbsolute } from 'path';
-import { tsConstructorType } from '@babel/types';
-
-const StyledMapsMap = styled.div`
-        background-color: red;
-    `;
 
 export class MapsMap extends Component {
   constructor(props) {
@@ -19,17 +11,15 @@ export class MapsMap extends Component {
   }
   render() {
     const google = window.google;
-    // Centers the map where the submitted addresses are located.
-     // For each address in the addressList, returns a pin on the map with name details of the address
     return (
       <div>
         <Map google={this.props.google}
-             zoom={this.props.zoom}
+             zoom={this.props.zoom} 
              center={this.props.avgCoordinates}>
           {this.props.addressList.map(address => {
             return (
 
-              <Marker
+              <Marker      
                 title={address.address}
                 name={address.address}
                 position={address.coordinates}
@@ -41,8 +31,7 @@ export class MapsMap extends Component {
           />
       )
     })}
-    {this.props.avgCoordinates !== undefined && // If there is an average to calculate - return a pin with the average coordinates which indicates the ultimate meeting point!
-            <Marker
+          {this.props.avgCoordinates !== undefined && <Marker
             title={'Meet here!'}
             name={"meet"}
             position={this.props.avgCoordinates}

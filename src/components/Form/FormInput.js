@@ -6,8 +6,7 @@ const StyledInput = styled.input`
 outline: none;
 border: none;
 background-color: rgba(255, 255, 255, 0.5);
-min-width: 50%;
-font-size: 36px;
+font-size: 30px;
 border-radius: 35px;
 text-align: center;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
@@ -15,11 +14,12 @@ text-align: center;
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 font-family: 'Roboto Condensed', sans-serif;
 position: absolute;
-margin-left: auto;
-margin-right: auto;
+min-width: 50%;
+margin-top: 16px;
 left: 0;
 right: 0;
-margin-top: 16px;
+margin-left: auto;
+margin-right: auto;
 
 @media screen and (max-width: 768px) {
    width: 90%;
@@ -27,11 +27,6 @@ margin-top: 16px;
    font-size: 1.2rem;
    height: 2.4rem;
 }
-
-@media screen and (min-width: 1024px) {
-  width: 40%;
-}
-
 `
 class FormInput extends Component {
    constructor(props) {
@@ -59,7 +54,7 @@ class FormInput extends Component {
 
    render() {
        return (
-           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, stad"/> /* Renders an input field */
+           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, city"/> /* Renders an input field */
 
        )
    }
