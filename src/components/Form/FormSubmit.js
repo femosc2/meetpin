@@ -13,6 +13,7 @@ position: absolute;
 z-index: 8000;
 text-align: center;
 left: 71%;
+top: 1.9%;
 border: none;
 border-radius: 35px;
 text-align: center;
@@ -22,7 +23,9 @@ background-color: white;
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
 width: 5vw;
+
 @media only screen and (max-width: 768px) {
+  width: 5vw;
 
 }
 
@@ -38,6 +41,7 @@ left: 70%;
    transition: 1s;
    cursor: pointer;
 }
+
 &:active {
    background: #fff;
    transition 0.3s;
