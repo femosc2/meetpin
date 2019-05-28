@@ -33,7 +33,7 @@ const APIkeys = {
 }
 module.exports = APIkeys
 ```
-
+and put it in the src folder.
 </li>
   <li> write <code> npm install </code> </li>
 </ol>
