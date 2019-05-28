@@ -27,11 +27,6 @@ margin-top: 16px;
    font-size: 1.2rem;
    height: 2.4rem;
 }
-
-@media screen and (min-width: 1024px) {
-  width: 40%;
-}
-
 `
 class FormInput extends Component {
    constructor(props) {
@@ -59,7 +54,7 @@ class FormInput extends Component {
 
    render() {
        return (
-           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, stad"/> /* Renders an input field */
+           <StyledInput type="text" value={this.state.searchValue} onChange={this.handleChange} placeholder="Address, city"/> /* Renders an input field */
 
        )
    }

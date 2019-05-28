@@ -1,33 +1,37 @@
 import React, { Component } from "react";
 import SavedLocationListItem from './SavedLocationListItem.js';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const StyledUl = styled.ul`
-    margin: 0;
-    position: absolute;
-    font-family: 'Roboto Condensed', sans-serif;
-    position: absolute;
-    top: 18vh;
-    left: 1vw;
-    width: 18%;
-    border-radius: .5rem;
-    -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
-    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
-    background-color: rgba(255, 255, 255, 0.5);
-    overflow-y: scroll;
-    padding-inline-start: 0;
 
-@media screen and (max-width: 1024px) {
-    top: 10vh;
-    width: 22%;
-    padding: 0.5%;
-
+const slideInSide = keyframes`
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}		
 }
-
-
 `
 
+const StyledUl = styled.ul`
+  position: absolute;
+  top: 23%;
+  padding: 0;
+  -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
+  background-color: rgba(255, 255, 255, 0.8);
+  max-height: 57vh;
+  overflow-y: scroll;
+  padding: .5rem;
+  z-index: 8500;
+  animation: ${slideInSide} 1s;
+
+  @media screen and (max-width: 768px) {
+    max-height: 100vh;
+    top: 0%;
+    margin: 0;
+} `
 
 class SavedLocationList extends Component {
   constructor(props) {
@@ -37,6 +41,7 @@ class SavedLocationList extends Component {
   render() {
     return (
       <StyledUl>
+        <h1>History</h1>
       {this.props.addresses !== null && this.props.addresses.map(address => {
         return (
           <SavedLocationListItem address={address} />

@@ -13,35 +13,28 @@ position: absolute;
 z-index: 8000;
 text-align: center;
 left: 71%;
-top: 1.9%;
 border: none;
 border-radius: 35px;
 text-align: center;
-background-color: white;
 -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.25);
 transition: 1s;
 width: 5vw;
+margin-top: 15px;
 
 @media only screen and (max-width: 768px) {
-  width: 5vw;
-
-}
-
-@media screen and (max-width: 1024px) {
-width: 10%;
-top: 9.2vh;
-left: 70%;
+   top: 8vh;
+   left: 84%;
+   width: 14vw;
+   background: white;
 }
 
 &:hover {
-   background: rgba(255,126,119,1);
-   filter: hue-rotate(180deg);
-   transition: 1s;
+   background: #78e08f;
+   transition: .8s;
    cursor: pointer;
 }
-
 &:active {
    background: #fff;
    transition 0.3s;
