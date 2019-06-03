@@ -24,6 +24,12 @@ position: absolute;
 bottom: 0;
 background: orangered;
 color: white;
+width: 5%;
+left: 50%;
+bottom: 20px;
+@media screen and (max-width: 768px) {
+    bottom: 40px;
+}
 `
 
 class MessageBox extends Component {

@@ -139,7 +139,7 @@ class Maps extends Component {
                     }
                 })
             } else {
-                alert("You had less than two good addresses!")
+                this.props.badAddress("One or more of your addresses did not return any results")
                 console.log(this.state.addresses)
             }
 
