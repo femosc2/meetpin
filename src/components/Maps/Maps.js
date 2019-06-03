@@ -99,7 +99,7 @@ class Maps extends Component {
                 this.setLocalStorage(geoLocation.address)
                 addressesArray.push(geoLocation);
                 } catch(error) {
-                    addressesArray.filter(address => address.address !== this.props.addresses[i])
+                    // addressesArray.filter(address => address.address !== this.props.addresses[i])
                     this.props.badAddress("One or more of your addresses did not return any results")
                 }
             })
@@ -119,24 +119,29 @@ class Maps extends Component {
         let latCoords = []
         let lngCoords = []
         try {
-            for (let i = 0; i < this.state.addresses.length; i++) {
-                latCoords.push(this.state.addresses[i].coordinates.lat)
-                lngCoords.push(this.state.addresses[i].coordinates.lng)
-            }
-    
-            let latSum = latCoords.reduce((previous, current) => current += previous);
-            let latAvg = latSum / latCoords.length;
-            
-            let lngSum = lngCoords.reduce((previous, current) => current += previous);
-            let lngAvg = lngSum / lngCoords.length;
-    
-            this.setState({
-                zoom: 10,
-                avgCoordinates: {
-                    lat: latAvg,
-                    lng: lngAvg
+            if (this.state.addresses.length > 1) {
+                for (let i = 0; i < this.state.addresses.length; i++) {
+                    latCoords.push(this.state.addresses[i].coordinates.lat)
+                    lngCoords.push(this.state.addresses[i].coordinates.lng)
                 }
-            })
+        
+                let latSum = latCoords.reduce((previous, current) => current += previous);
+                let latAvg = latSum / latCoords.length;
+                
+                let lngSum = lngCoords.reduce((previous, current) => current += previous);
+                let lngAvg = lngSum / lngCoords.length;
+        
+                this.setState({
+                    zoom: 10,
+                    avgCoordinates: {
+                        lat: latAvg,
+                        lng: lngAvg
+                    }
+                })
+            } else {
+                alert("You had less than two good addresses!")
+                console.log(this.state.addresses)
+            }
 
         } catch {
             this.props.badAddress("None of your inputs returned an address, please try again.")
