@@ -111,7 +111,7 @@ class Maps extends Component {
             })
            setTimeout(() => {
                this.coordinatesCalculation()
-           }, 1000)
+           }, 2000)
 
         }
 
