@@ -48,8 +48,11 @@ and put it in the src folder.
 
 ## Justification of React
 
-React was chosen as the framework due to the single-page nature of the application. Reacts strenght lies in building applications where the page components gets updated regulary without updating the page, therefore a framework such as Jquery was discarded in favor of React. [1]
-The reason why react was chosen in favor of Angular is that React is a more popular framework, it is more lightweight and the developers did not have to learn TypeScript (as they had no experience with typed languages). [2] React also have a much more active community which makes the process of fixing errors easier. [2]
+React was chosen as the framework due to the single-page nature of the application. Reacts strenght lies in building applications where the page components gets updated regulary without updating the page, therefore a framework such as Jquery was discarded in favor of React [1].
+
+The reason why react was chosen in favor of Angular is that React is a more popular framework, it is more lightweight and the developers did not have to learn TypeScript (as they had no experience with typed languages) [2]. React also have a much more active community which makes the process of finding and fixing errors easier [2]. 
+
+Vue was also considered, however, since the majority of the group already has a relatively deep knowledge of Vue and this project is a learning experience, the group decided not to repeat what we know and instead try to take on React and learn new concepts and face new challenges. 
 
 ## Sources.
 [1]. Anton Tibblin, Malmö Universitet, Sweden, Föreläsning 10. JS-ramverk
